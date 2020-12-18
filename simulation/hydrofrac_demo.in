@@ -1,0 +1,723 @@
+&problem_list
+name = 'hydrofrac_demo/hydrofrac_demo',
+ninfo = 100,
+CFL = 3.000000d-01,
+refine = 1.000000d+00,
+nt = 240000
+/
+ 
+&checkpoint_list
+ckpt = T,
+resume = F,
+interval = 1100,
+max_time = 10000
+/
+ 
+&domain_list
+mode = 2,
+nblocks_x = 5,
+nblocks_y = 4,
+nx_list = 33, 257, 465, 257, 32,
+ny_list = 32, 465, 465, 32,
+FDmethod = 'SBP6'
+/
+ 
+!---BLOCK1---
+ 
+&grid_list
+LT = -2.121094d+01, -2.000000d+01,
+RT = -2.000000d+01, -2.000000d+01,
+LB = -2.121094d+01, -2.133621d+01,
+RB = -2.000000d+01, -2.133621d+01
+/
+ 
+&boundaries_list
+bcL = 'absorbing',
+bcR = 'none',
+bcB = 'absorbing',
+bcT = 'none'
+/
+ 
+&pml_list
+pmlx = T,
+pmly = T,
+n = 2.000000d+00,
+sigma = 4.278352d+02,
+kappa = 5.000000d-01,
+mx = -2.000000d+01,
+px = 2.000000d+01,
+my = -2.000000d+01,
+py = 2.000000d+01
+/
+ 
+!---BLOCK2---
+ 
+&grid_list
+LT = -2.000000d+01, -2.000000d+01,
+RT = -1.000000d+01, -2.000000d+01,
+LB = -2.000000d+01, -2.133621d+01,
+RB = -1.000000d+01, -2.133621d+01
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'none',
+bcB = 'absorbing',
+bcT = 'none'
+/
+ 
+&pml_list
+pmlx = F,
+pmly = T,
+n = 2.000000d+00,
+sigma = 4.278352d+02,
+kappa = 5.000000d-01,
+mx = -2.000000d+01,
+px = 2.000000d+01,
+my = -2.000000d+01,
+py = 2.000000d+01
+/
+ 
+!---BLOCK3---
+ 
+&grid_list
+LT = -1.000000d+01, -2.000000d+01,
+RT = 1.000000d+01, -2.000000d+01,
+LB = -1.000000d+01, -2.133621d+01,
+RB = 1.000000d+01, -2.133621d+01
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'none',
+bcB = 'absorbing',
+bcT = 'none'
+/
+ 
+&pml_list
+pmlx = F,
+pmly = T,
+n = 2.000000d+00,
+sigma = 4.278352d+02,
+kappa = 5.000000d-01,
+mx = -2.000000d+01,
+px = 2.000000d+01,
+my = -2.000000d+01,
+py = 2.000000d+01
+/
+ 
+!---BLOCK4---
+ 
+&grid_list
+LT = 1.000000d+01, -2.000000d+01,
+RT = 2.000000d+01, -2.000000d+01,
+LB = 1.000000d+01, -2.133621d+01,
+RB = 2.000000d+01, -2.133621d+01
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'none',
+bcB = 'absorbing',
+bcT = 'none'
+/
+ 
+&pml_list
+pmlx = F,
+pmly = T,
+n = 2.000000d+00,
+sigma = 4.278352d+02,
+kappa = 5.000000d-01,
+mx = -2.000000d+01,
+px = 2.000000d+01,
+my = -2.000000d+01,
+py = 2.000000d+01
+/
+ 
+!---BLOCK5---
+ 
+&grid_list
+LT = 2.000000d+01, -2.000000d+01,
+RT = 2.121094d+01, -2.000000d+01,
+LB = 2.000000d+01, -2.133621d+01,
+RB = 2.121094d+01, -2.133621d+01
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'absorbing',
+bcB = 'absorbing',
+bcT = 'none'
+/
+ 
+&pml_list
+pmlx = T,
+pmly = T,
+n = 2.000000d+00,
+sigma = 4.278352d+02,
+kappa = 5.000000d-01,
+mx = -2.000000d+01,
+px = 2.000000d+01,
+my = -2.000000d+01,
+py = 2.000000d+01
+/
+ 
+!---BLOCK6---
+ 
+&grid_list
+LT = -2.121094d+01, 0.000000d+00,
+RT = -2.000000d+01, 0.000000d+00,
+LB = -2.121094d+01, -2.000000d+01,
+RB = -2.000000d+01, -2.000000d+01
+/
+ 
+&boundaries_list
+bcL = 'absorbing',
+bcR = 'none',
+bcB = 'none',
+bcT = 'none'
+/
+ 
+&pml_list
+pmlx = T,
+pmly = F,
+n = 2.000000d+00,
+sigma = 4.278352d+02,
+kappa = 5.000000d-01,
+mx = -2.000000d+01,
+px = 2.000000d+01,
+my = -2.000000d+01,
+py = 2.000000d+01
+/
+ 
+!---BLOCK7---
+ 
+&grid_list
+LT = -2.000000d+01, 0.000000d+00,
+RT = -1.000000d+01, 0.000000d+00,
+LB = -2.000000d+01, -2.000000d+01,
+RB = -1.000000d+01, -2.000000d+01
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'none',
+bcB = 'none',
+bcT = 'none'
+/
+ 
+!---BLOCK8---
+ 
+&grid_list
+LT = -1.000000d+01, 0.000000d+00,
+RT = 1.000000d+01, 0.000000d+00,
+LB = -1.000000d+01, -2.000000d+01,
+RB = 1.000000d+01, -2.000000d+01
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'none',
+bcB = 'none',
+bcT = 'none'
+/
+ 
+!---BLOCK9---
+ 
+&grid_list
+LT = 1.000000d+01, 0.000000d+00,
+RT = 2.000000d+01, 0.000000d+00,
+LB = 1.000000d+01, -2.000000d+01,
+RB = 2.000000d+01, -2.000000d+01
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'none',
+bcB = 'none',
+bcT = 'none'
+/
+ 
+!---BLOCK10---
+ 
+&grid_list
+LT = 2.000000d+01, 0.000000d+00,
+RT = 2.121094d+01, 0.000000d+00,
+LB = 2.000000d+01, -2.000000d+01,
+RB = 2.121094d+01, -2.000000d+01
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'absorbing',
+bcB = 'none',
+bcT = 'none'
+/
+ 
+&pml_list
+pmlx = T,
+pmly = F,
+n = 2.000000d+00,
+sigma = 4.278352d+02,
+kappa = 5.000000d-01,
+mx = -2.000000d+01,
+px = 2.000000d+01,
+my = -2.000000d+01,
+py = 2.000000d+01
+/
+ 
+!---BLOCK11---
+ 
+&grid_list
+LT = -2.121094d+01, 2.000000d+01,
+RT = -2.000000d+01, 2.000000d+01,
+LB = -2.121094d+01, 0.000000d+00,
+RB = -2.000000d+01, 0.000000d+00
+/
+ 
+&boundaries_list
+bcL = 'absorbing',
+bcR = 'none',
+bcB = 'none',
+bcT = 'none'
+/
+ 
+&pml_list
+pmlx = T,
+pmly = F,
+n = 2.000000d+00,
+sigma = 4.278352d+02,
+kappa = 5.000000d-01,
+mx = -2.000000d+01,
+px = 2.000000d+01,
+my = -2.000000d+01,
+py = 2.000000d+01
+/
+ 
+!---BLOCK12---
+ 
+&grid_list
+LT = -2.000000d+01, 2.000000d+01,
+RT = -1.000000d+01, 2.000000d+01,
+LB = -2.000000d+01, 0.000000d+00,
+RB = -1.000000d+01, 0.000000d+00
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'none',
+bcB = 'none',
+bcT = 'none'
+/
+ 
+!---BLOCK13---
+ 
+&grid_list
+LT = -1.000000d+01, 2.000000d+01,
+RT = 1.000000d+01, 2.000000d+01,
+LB = -1.000000d+01, 0.000000d+00,
+RB = 1.000000d+01, 0.000000d+00
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'none',
+bcB = 'none',
+bcT = 'none'
+/
+ 
+!---BLOCK14---
+ 
+&grid_list
+LT = 1.000000d+01, 2.000000d+01,
+RT = 2.000000d+01, 2.000000d+01,
+LB = 1.000000d+01, 0.000000d+00,
+RB = 2.000000d+01, 0.000000d+00
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'none',
+bcB = 'none',
+bcT = 'none'
+/
+ 
+!---BLOCK15---
+ 
+&grid_list
+LT = 2.000000d+01, 2.000000d+01,
+RT = 2.121094d+01, 2.000000d+01,
+LB = 2.000000d+01, 0.000000d+00,
+RB = 2.121094d+01, 0.000000d+00
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'absorbing',
+bcB = 'none',
+bcT = 'none'
+/
+ 
+&pml_list
+pmlx = T,
+pmly = F,
+n = 2.000000d+00,
+sigma = 4.278352d+02,
+kappa = 5.000000d-01,
+mx = -2.000000d+01,
+px = 2.000000d+01,
+my = -2.000000d+01,
+py = 2.000000d+01
+/
+ 
+!---BLOCK16---
+ 
+&grid_list
+LT = -2.121094d+01, 2.133621d+01,
+RT = -2.000000d+01, 2.133621d+01,
+LB = -2.121094d+01, 2.000000d+01,
+RB = -2.000000d+01, 2.000000d+01
+/
+ 
+&boundaries_list
+bcL = 'absorbing',
+bcR = 'none',
+bcB = 'none',
+bcT = 'absorbing'
+/
+ 
+&pml_list
+pmlx = T,
+pmly = T,
+n = 2.000000d+00,
+sigma = 4.278352d+02,
+kappa = 5.000000d-01,
+mx = -2.000000d+01,
+px = 2.000000d+01,
+my = -2.000000d+01,
+py = 2.000000d+01
+/
+ 
+!---BLOCK17---
+ 
+&grid_list
+LT = -2.000000d+01, 2.133621d+01,
+RT = -1.000000d+01, 2.133621d+01,
+LB = -2.000000d+01, 2.000000d+01,
+RB = -1.000000d+01, 2.000000d+01
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'none',
+bcB = 'none',
+bcT = 'absorbing'
+/
+ 
+&pml_list
+pmlx = F,
+pmly = T,
+n = 2.000000d+00,
+sigma = 4.278352d+02,
+kappa = 5.000000d-01,
+mx = -2.000000d+01,
+px = 2.000000d+01,
+my = -2.000000d+01,
+py = 2.000000d+01
+/
+ 
+!---BLOCK18---
+ 
+&grid_list
+LT = -1.000000d+01, 2.133621d+01,
+RT = 1.000000d+01, 2.133621d+01,
+LB = -1.000000d+01, 2.000000d+01,
+RB = 1.000000d+01, 2.000000d+01
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'none',
+bcB = 'none',
+bcT = 'absorbing'
+/
+ 
+&pml_list
+pmlx = F,
+pmly = T,
+n = 2.000000d+00,
+sigma = 4.278352d+02,
+kappa = 5.000000d-01,
+mx = -2.000000d+01,
+px = 2.000000d+01,
+my = -2.000000d+01,
+py = 2.000000d+01
+/
+ 
+!---BLOCK19---
+ 
+&grid_list
+LT = 1.000000d+01, 2.133621d+01,
+RT = 2.000000d+01, 2.133621d+01,
+LB = 1.000000d+01, 2.000000d+01,
+RB = 2.000000d+01, 2.000000d+01
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'none',
+bcB = 'none',
+bcT = 'absorbing'
+/
+ 
+&pml_list
+pmlx = F,
+pmly = T,
+n = 2.000000d+00,
+sigma = 4.278352d+02,
+kappa = 5.000000d-01,
+mx = -2.000000d+01,
+px = 2.000000d+01,
+my = -2.000000d+01,
+py = 2.000000d+01
+/
+ 
+!---BLOCK20---
+ 
+&grid_list
+LT = 2.000000d+01, 2.133621d+01,
+RT = 2.121094d+01, 2.133621d+01,
+LB = 2.000000d+01, 2.000000d+01,
+RB = 2.121094d+01, 2.000000d+01
+/
+ 
+&boundaries_list
+bcL = 'none',
+bcR = 'absorbing',
+bcB = 'none',
+bcT = 'absorbing'
+/
+ 
+&pml_list
+pmlx = T,
+pmly = T,
+n = 2.000000d+00,
+sigma = 4.278352d+02,
+kappa = 5.000000d-01,
+mx = -2.000000d+01,
+px = 2.000000d+01,
+my = -2.000000d+01,
+py = 2.000000d+01
+/
+ 
+!---ALL BLOCKS---
+ 
+&material_list
+rho = 2.600000d+00,
+cs = 3.000000d+03,
+cp = 5.000000d+03
+/
+ 
+!---IFACE1---
+ 
+&interface_list
+/
+ 
+!---IFACE2---
+ 
+&interface_list
+/
+ 
+!---IFACE3---
+ 
+&interface_list
+/
+ 
+!---IFACE4---
+ 
+&interface_list
+/
+ 
+!---IFACE5---
+ 
+&interface_list
+/
+ 
+!---IFACE6---
+ 
+&interface_list
+/
+ 
+!---IFACE7---
+ 
+&interface_list
+/
+ 
+!---IFACE8---
+ 
+&interface_list
+/
+ 
+!---IFACE9---
+ 
+&interface_list
+/
+ 
+!---IFACE10---
+ 
+&interface_list
+/
+ 
+!---IFACE11---
+ 
+&interface_list
+/
+ 
+!---IFACE12---
+ 
+&interface_list
+/
+ 
+!---IFACE13---
+ 
+&interface_list
+/
+ 
+!---IFACE14---
+ 
+&interface_list
+/
+ 
+!---IFACE15---
+ 
+&interface_list
+/
+ 
+!---IFACE16---
+ 
+&interface_list
+/
+ 
+!---IFACE17---
+ 
+&interface_list
+/
+ 
+!---IFACE18---
+ 
+&interface_list
+/
+ 
+!---IFACE19---
+ 
+&interface_list
+/
+ 
+!---IFACE20---
+ 
+&interface_list
+/
+ 
+!---IFACE21---
+ 
+&interface_list
+/
+ 
+!---IFACE22---
+ 
+&interface_list
+/
+ 
+!---IFACE23---
+ 
+&interface_list
+/
+ 
+!---IFACE24---
+ 
+&interface_list
+coupling = 'hydrofrac'
+/
+ 
+&hydrofrac_list
+coupled = T,
+linearized_walls = T,
+operator_splitting = T,
+inviscid = F,
+FDmethod = 'SBP6',
+n = 91,
+w0 = 5.000000d-03,
+rho0 = 1.000000d+00,
+K0 = 2.250000d+06,
+mu = 1.000000d-06,
+source_term = T,
+xsource = 0.000000d+00,
+ysource = 0.000000d+00,
+Asource = 1.000000d+06,
+wsource = 1.000000d-01,
+tsource = 1.000000d-03
+/
+ 
+!---IFACE25---
+ 
+&interface_list
+/
+ 
+!---IFACE26---
+ 
+&interface_list
+/
+ 
+!---IFACE27---
+ 
+&interface_list
+/
+ 
+!---IFACE28---
+ 
+&interface_list
+/
+ 
+!---IFACE29---
+ 
+&interface_list
+/
+ 
+!---IFACE30---
+ 
+&interface_list
+/
+ 
+!---IFACE31---
+ 
+&interface_list
+/
+ 
+!---begin:output_list---
+B
+body
+x y
+0.000000d+00, 0.000000d+00, 1
+I
+iface24
+x y
+0.000000d+00, 0.000000d+00, 1
+B
+body
+vx vy
+0.000000d+00, 1.000000d+10, 200
+I
+iface24
+wm wp p u v
+0.000000d+00, 1.000000d+10, 200
+G
+body_grid
+x y
+0.000000d+00, 0.000000d+00, 1
+34, 25, 979, 33, 25, 930
+G
+body_grid
+vx vy
+0.000000d+00, 1.000000d+10, 1
+34, 25, 979, 33, 25, 930
+!---end:output_list---

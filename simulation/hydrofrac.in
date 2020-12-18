@@ -1,0 +1,206 @@
+&problem_list
+name = 'hydrofrac',
+ninfo = 10,
+CFL = 1.000000d-01,
+refine = 1.000000d+00,
+nt = 10000
+/
+
+&checkpoint_list
+ckpt = T,
+resume = F,
+interval = 2147483647,
+max_time = 1.000000d+02
+/
+
+&domain_list
+mode = 2,
+nblocks_x = 3,
+nblocks_y = 2,
+nx_list = 25, 51, 25,
+ny_list = 51, 51,
+FDmethod = 'SBP6'
+/
+
+!---BLOCK1---
+
+&grid_list
+LT = -2.000000d+01, 0.000000d+00,
+RT = -1.000000d+01, 0.000000d+00,
+LB = -2.000000d+01, -2.000000d+01,
+RB = -1.000000d+01, -2.000000d+01
+/
+
+&boundaries_list
+bcL = 'absorbing',
+bcR = 'none',
+bcB = 'absorbing',
+bcT = 'none'
+/
+
+!---BLOCK2---
+
+&grid_list
+LT = -1.000000d+01, 0.000000d+00,
+RT = 1.000000d+01, 0.000000d+00,
+LB = -1.000000d+01, -2.000000d+01,
+RB = 1.000000d+01, -2.000000d+01
+/
+
+&boundaries_list
+bcL = 'none',
+bcR = 'none',
+bcB = 'absorbing',
+bcT = 'none'
+/
+
+!---BLOCK3---
+
+&grid_list
+LT = 1.000000d+01, 0.000000d+00,
+RT = 2.000000d+01, 0.000000d+00,
+LB = 1.000000d+01, -2.000000d+01,
+RB = 2.000000d+01, -2.000000d+01
+/
+
+&boundaries_list
+bcL = 'none',
+bcR = 'absorbing',
+bcB = 'absorbing',
+bcT = 'none'
+/
+
+!---BLOCK4---
+
+&grid_list
+LT = -2.000000d+01, 2.000000d+01,
+RT = -1.000000d+01, 2.000000d+01,
+LB = -2.000000d+01, 0.000000d+00,
+RB = -1.000000d+01, 0.000000d+00
+/
+
+&boundaries_list
+bcL = 'absorbing',
+bcR = 'none',
+bcB = 'none',
+bcT = 'absorbing'
+/
+
+!---BLOCK5---
+
+&grid_list
+LT = -1.000000d+01, 2.000000d+01,
+RT = 1.000000d+01, 2.000000d+01,
+LB = -1.000000d+01, 0.000000d+00,
+RB = 1.000000d+01, 0.000000d+00
+/
+
+&boundaries_list
+bcL = 'none',
+bcR = 'none',
+bcB = 'none',
+bcT = 'absorbing'
+/
+
+!---BLOCK6---
+
+&grid_list
+LT = 1.000000d+01, 2.000000d+01,
+RT = 2.000000d+01, 2.000000d+01,
+LB = 1.000000d+01, 0.000000d+00,
+RB = 2.000000d+01, 0.000000d+00
+/
+
+&boundaries_list
+bcL = 'none',
+bcR = 'absorbing',
+bcB = 'none',
+bcT = 'absorbing'
+/
+
+!---ALL BLOCKS---
+
+&material_list
+rho = 2.600000d+00,
+cs = 3.000000d+03,
+cp = 5.000000d+03
+/
+
+!---IFACE1---
+
+&interface_list
+/
+
+!---IFACE2---
+
+&interface_list
+/
+
+!---IFACE3---
+
+&interface_list
+/
+
+!---IFACE4---
+
+&interface_list
+/
+
+!---IFACE5---
+
+&interface_list
+/
+
+!---IFACE6---
+
+&interface_list
+coupling = 'hydrofrac'
+/
+
+&hydrofrac_list
+coupled = T,
+linearized_walls = T,
+operator_splitting = T,
+inviscid = F,
+FDmethod = 'SBP6',
+n = 40,
+w0 = 1.000000d-03,
+rho0 = 1.000000d+00,
+K0 = 2.250000d+06,
+mu = 1.000000d-06,
+source_term = T,
+xsource = 0.000000d+00,
+ysource = 0.000000d+00,
+Asource = 1.000000d+06,
+wsource = 8.000000d-01,
+tsource = 1.000000d-03,
+bcL = 'sin_p',
+bcLomega = 6.283185d+02,
+bcRA = 1.000000d-02,
+bcRomega = 6.283185d+02,
+banded_storage = T
+/
+
+!---IFACE7---
+
+&interface_list
+/
+
+!---begin:output_list---
+B
+body
+x y
+0.000000d+00, 0.000000d+00, 1
+B
+body
+vx vy sxx sxy syy
+0.000000d+00, 1.000000d+04, 50
+I
+iface6
+x y
+0.000000d+00, 0.000000d+00, 1
+I
+iface6
+wm wp p u v
+0.000000d+00, 1.000000d+04, 50
+!---end:output_list---
