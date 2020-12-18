@@ -24,18 +24,19 @@ compiled. The final step of the build process also runs a simulation.
 You can find the compiled version of FDMAP inside the directory `fdmap` within the docker
 container, as well as simulation data in `simulation`. To view any of the data, you can interact with the newly created docker image by first looking up its
 name
-```
+```bash
 $ docker images
 ```
 Copy the IMAGE ID e.g., `1a118489e5e4` and run
-```
+```bash
 $ docker run -it docker run -it 1a118489e5e4 /bin/bash
 Run the simulation using the provided example input file (see below),
-```
-$ root@4061eb40b079:/# cd simulation && ./fdmap hydrofrac.in
 
+```bash
+$ root@4061eb40b079:/# cd simulation && ./fdmap hydrofrac.in
 ```
 List generated simulation data:
+```
 $ root@4061eb40b079:/# ls simulation
 curves          hydrofrac.m          hydrofrac_B_sxy.t    hydrofrac_B_vx.t    hydrofrac_B_x.t    hydrofrac_I_p.t    hydrofrac_I_v.t     hydrofrac_I_wp.t   hydrofrac_I_y.t
 fdmap           hydrofrac_B_sxx.dat  hydrofrac_B_syy.dat  hydrofrac_B_vy.dat  hydrofrac_B_y.dat  hydrofrac_I_u.dat  hydrofrac_I_wm.dat  hydrofrac_I_x.dat  hydrofrac_demo.in
@@ -101,9 +102,9 @@ More details regarding the hydrofrac options are documented in the source code i
 
 ### Crack profiles and variable grid stretching along the width direction
 The input file above configures a tabular crack with uniform grid spacing across the width of the
-crack. If you need to use a tapered profile, and or need to resolve boundary layers, you need to
+crack. If you need to use a tapered profile and/or need to resolve boundary layers, you need to
 generate some data files and link to them in the input file. For example, add the following to the
-input file
+input file:
 ```
 geom_file = 'profile.curve',
 var_file = 'grid_stretching.var',
